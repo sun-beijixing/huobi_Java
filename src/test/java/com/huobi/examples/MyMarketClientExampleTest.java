@@ -14,10 +14,11 @@ import java.util.List;
 public class MyMarketClientExampleTest {
 
     public static void main(String[] args) {
-        newDatas();
+//        newDatas();
 //        historyDatas();
 //        sub();
 //        sub2();
+        sub3();
     }
 
     private static void newDatas() {
@@ -50,6 +51,14 @@ public class MyMarketClientExampleTest {
         });
     }
 
+    /**
+     * socket订阅，获取kline数据
+     * @Description TODO
+     * @Author wangwei.0822@163.com
+     * @Date 2020/11/30 19:50
+     * @Param
+     * @return
+     **/
     private static void sub(){
         String symbol = "btcusdt";
         MarketClient marketClient = MarketClient.create(new HuobiOptions());
@@ -76,8 +85,10 @@ public class MyMarketClientExampleTest {
         marketClient.reqCandlestick(ReqCandlestickRequest.builder()
                 .symbol(symbol)
                 .interval(CandlestickIntervalEnum.MIN15)
-                .from(1606048200l)
-                .to(1606015800l)
+//                .from(1606048200l)
+                .from(1601481600l)//2020-10-01 00:00:00
+//                .to(1606015800l)
+                .to(1604160000l)//2020-11-01 00:00:00
                 .build(), candlestickReq -> {
 
             System.out.println(candlestickReq.toString());
@@ -88,6 +99,29 @@ public class MyMarketClientExampleTest {
 
 //        ReqCandlestickRequest request, ResponseCallback<CandlestickReq> callback
 
+
+
+    }
+
+    private static void sub3(){
+        String symbol = "btcusdt";
+        long from=1604160000;
+        long to=1606735800;
+        MarketClient marketClient = MarketClient.create(new HuobiOptions());
+        marketClient.reqCandlestick(ReqCandlestickRequest.builder()
+                .symbol(symbol)
+                .interval(CandlestickIntervalEnum.MIN60)//每次最多返回300条,以此类推时间范围为（60m*300）=18000分钟时间范围，超出则报异常
+                .interval(CandlestickIntervalEnum.HOUR4)//每次最多返回300条,以此类推时间范围为（4h*300）=1200小时时间范围，超出则报异常
+                .interval(CandlestickIntervalEnum.DAY1)//每次最多返回300条,以此类推时间范围为（1d*300）=300天时间范围，超出则报异常
+                .from(from)//2020-10-01 00:00:00
+                .to(to)
+                .build(), candlestickReq -> {
+
+            System.out.println(candlestickReq.toString());
+            candlestickReq.getCandlestickList().forEach(candlestick -> {
+                System.out.println("candlestick:" + candlestick.toString());
+            });
+        });
 
 
     }
