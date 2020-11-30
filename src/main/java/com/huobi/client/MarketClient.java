@@ -76,7 +76,15 @@ public interface MarketClient {
 
   WebSocketConnection reqMbpIncrementalUpdate(SubMbpIncrementalUpdateRequest request, WebSocketConnection connection);
 
-  void reqCandlestick(ReqCandlestickRequest request, ResponseCallback<CandlestickReq> callback);
+    /**
+     * 历史数据订阅，含有时间段
+     * @Description TODO
+     * @Author wangwei.0822@163.com
+     * @Date 2020/11/23 15:06
+     * @Param
+     * @return
+     **/
+    void reqCandlestick(ReqCandlestickRequest request, ResponseCallback<CandlestickReq> callback);
 
   void reqMarketDepth(ReqMarketDepthRequest request, ResponseCallback<MarketDepthReq> callback);
 

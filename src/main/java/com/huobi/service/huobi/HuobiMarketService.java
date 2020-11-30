@@ -455,6 +455,14 @@ public class HuobiMarketService implements MarketClient {
     return connection;
   }
 
+  /**
+   * 历史数据订阅，含有时间段
+   * @Description TODO
+   * @Author wangwei.0822@163.com
+   * @Date 2020/11/23 15:02
+   * @Param
+   * @return
+   **/
   public void reqCandlestick(ReqCandlestickRequest request, ResponseCallback<CandlestickReq> callback) {
 
     // 检查参数
