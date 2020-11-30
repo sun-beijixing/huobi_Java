@@ -15,6 +15,7 @@ public class HuobiOptions implements Options {
 
   @Builder.Default
   private String restHost = "https://api.huobi.pro";
+//  private String restHost = "https://api.huobi.de.com";
 
   @Builder.Default
   private String websocketHost = "wss://api.huobi.pro";
