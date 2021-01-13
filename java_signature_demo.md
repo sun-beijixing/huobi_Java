@@ -345,7 +345,7 @@ import okhttp3.Response;
 
 public class HuobiSignatureDemo {
 
-  static final String HOST = "https://api.huobi.vn";
+  static final String HOST = "https://api.huobi.pro";
   static OkHttpClient okHttpClient = new OkHttpClient();
   static final String API_KEY = "api key";
   static final String SECRET_KEY = "secret key";
