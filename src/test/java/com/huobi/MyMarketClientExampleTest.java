@@ -13,10 +13,12 @@ import java.util.List;
 
 public class MyMarketClientExampleTest {
 
+    static int aaa=0;
+
     public static void main(String[] args) {
 //        newDatas();
 //        sub();
-//        sub3();
+        sub3();
     }
 
     private static void newDatas() {
@@ -70,15 +72,20 @@ public class MyMarketClientExampleTest {
         String symbol = "btcusdt";
         long from=1604160000;
         long to=1606735800;
+
         MarketClient marketClient = MarketClient.create(new HuobiOptions());
         marketClient.reqCandlestick(ReqCandlestickRequest.builder()
                 .symbol(symbol)
-                .interval(CandlestickIntervalEnum.MIN60)//每次最多返回300条,以此类推时间范围为（60m*300）=18000分钟时间范围，超出则报异常from: 1601481600 to: 1604160000, out of range
-                .interval(CandlestickIntervalEnum.HOUR4)//每次最多返回300条,以此类推时间范围为（4h*300）=1200小时时间范围，超出则报异常from: 1601481600 to: 1604160000, out of range
+//                .interval(CandlestickIntervalEnum.MIN60)//每次最多返回300条,以此类推时间范围为（60m*300）=18000分钟时间范围，超出则报异常from: 1601481600 to: 1604160000, out of range
+//                .interval(CandlestickIntervalEnum.HOUR4)//每次最多返回300条,以此类推时间范围为（4h*300）=1200小时时间范围，超出则报异常from: 1601481600 to: 1604160000, out of range
                 .interval(CandlestickIntervalEnum.DAY1)//每次最多返回300条,以此类推时间范围为（1d*300）=300天时间范围，超出则报异常from: 1601481600 to: 1604160000, out of range
                 .from(from)//2020-10-01 00:00:00
                 .to(to)
                 .build(), candlestickReq -> {
+
+            aaa++;
+
+            System.err.println(aaa+"========================================================================");
 
             System.out.println(candlestickReq.toString());
             candlestickReq.getCandlestickList().forEach(candlestick -> {
