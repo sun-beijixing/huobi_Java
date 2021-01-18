@@ -27,14 +27,26 @@ import com.huobi.service.huobi.parser.wallet.WithdrawQuotaParser;
 import com.huobi.service.huobi.signature.UrlParamsBuilder;
 import com.huobi.utils.InputChecker;
 
+/**
+ * 钱包（提充相关）
+ * @ClassName HuobiWalletService
+ * @Description TODO
+ * @Author wangwei.0822@163.com
+ * @Data 2021/1/13 18:35
+ **/
 public class HuobiWalletService implements WalletClient {
 
-
+//此节点用于查询特定币种（IOTA除外）在其所在区块链中的充币地址，母子用户均可用
   public static final String GET_DEPOSIT_ADDRESS_PATH = "/v2/account/deposit/address";
+  //该节点用于查询API key可用的提币地址，限母用户可用。
   public static final String GET_WITHDRAW_ADDRESS_PATH = "/v2/account/withdraw/address";
+  //此节点用于查询各币种提币额度，限母用户可用
   public static final String GET_WITHDRAW_QUOTA_PATH = "/v2/account/withdraw/quota";
+  //此节点用于将现货账户的数字币提取到区块链地址（已存在于提币地址列表）而不需要多重（短信、邮件）验证，限母用户可用
   public static final String CREATE_WITHDRAW_PATH = "/v1/dw/withdraw/api/create";
+  //此节点用于取消已提交的提币请求，限母用户可用
   public static final String CANCEL_WITHDRAW_PATH = "/v1/dw/withdraw-virtual/{withdraw-id}/cancel";
+  //此节点用于查询充提记录，母子用户均可用
   public static final String DEPOSIT_WITHDRAW_PATH = "/v1/query/deposit-withdraw";
 
   private Options options;

@@ -26,11 +26,16 @@ import com.huobi.utils.InputChecker;
 
 public class HuobiAlgoService implements AlgoClient {
 
-  private static final String GET_ALGO_ORDERS_SPECIFIC_PATH = "/v2/algo-orders/specific";
-  private static final String GET_OPEN_ALGO_ORDERS_PATH = "/v2/algo-orders/opening";
-  private static final String GET_HISTORY_ALGO_ORDERS_PATH = "/v2/algo-orders/history";
-  private static final String CREATE_ALGO_ORDER_PATH = "/v2/algo-orders";
-  private static final String CANCEL_ALGO_ORDER_PATH = "/v2/algo-orders/cancellation";
+    //查询特定策略委托
+    private static final String GET_ALGO_ORDERS_SPECIFIC_PATH = "/v2/algo-orders/specific";
+    //查询未触发OPEN策略委托
+    private static final String GET_OPEN_ALGO_ORDERS_PATH = "/v2/algo-orders/opening";
+    //查询策略委托历史
+    private static final String GET_HISTORY_ALGO_ORDERS_PATH = "/v2/algo-orders/history";
+    //策略委托下单
+    private static final String CREATE_ALGO_ORDER_PATH = "/v2/algo-orders";
+    //策略委托（触发前）撤单
+    private static final String CANCEL_ALGO_ORDER_PATH = "/v2/algo-orders/cancellation";
 
 
   private Options options;

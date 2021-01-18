@@ -44,22 +44,36 @@ import com.huobi.utils.SymbolUtils;
 public class HuobiTradeService implements TradeClient {
 
 
-  public static final String CREATE_ORDER_PATH = "/v1/order/orders/place";
-  public static final String CANCEL_ORDER_PATH = "/v1/order/orders/{order-id}/submitcancel";
-  public static final String CANCEL_ORDER_BY_CLIENT_ORDER_ID_PATH = "/v1/order/orders/submitCancelClientOrder";
-  public static final String BATCH_CANCEL_OPEN_ORDERS_PATH = "/v1/order/orders/batchCancelOpenOrders";
-  public static final String BATCH_CANCEL_ORDERS_PATH = "/v1/order/orders/batchcancel";
-  public static final String GET_OPEN_ORDERS_PATH = "/v1/order/openOrders";
-  public static final String GET_ORDER_PATH = "/v1/order/orders/{order-id}";
-  public static final String GET_ORDERS_PATH = "/v1/order/orders";
-  public static final String GET_ORDERS_HISTORY_PATH = "/v1/order/history";
-  public static final String GET_ORDER_BY_CLIENT_ORDER_ID_PATH = "/v1/order/orders/getClientOrder";
-  public static final String GET_SINGLE_ORDER_MATCH_RESULT_PATH = "/v1/order/orders/{order-id}/matchresults";
-  public static final String GET_MATCH_RESULT_PATH = "/v1/order/matchresults";
-  public static final String GET_FEE_RATE_PATH = "/v2/reference/transact-fee-rate";
-
-  public static final String WEBSOCKET_ORDER_UPDATE_V2_TOPIC = "orders#${symbol}";
-  public static final String WEBSOCKET_TRADE_CLEARING_TOPIC = "trade.clearing#${symbol}";
+    //创建并执行订单
+    public static final String CREATE_ORDER_PATH = "/v1/order/orders/place";
+    //撤销一个订单
+    public static final String CANCEL_ORDER_PATH = "/v1/order/orders/{order-id}/submitcancel";
+    //撤销订单（基于client order ID）
+    public static final String CANCEL_ORDER_BY_CLIENT_ORDER_ID_PATH = "/v1/order/orders/submitCancelClientOrder";
+    //撤销当前委托订单
+    public static final String BATCH_CANCEL_OPEN_ORDERS_PATH = "/v1/order/orders/batchCancelOpenOrders";
+    //批量撤销订单
+    public static final String BATCH_CANCEL_ORDERS_PATH = "/v1/order/orders/batchcancel";
+    //查询当前委托订单
+    public static final String GET_OPEN_ORDERS_PATH = "/v1/order/openOrders";
+    //查询一个订单详情
+    public static final String GET_ORDER_PATH = "/v1/order/orders/{order-id}";
+    //查询当前委托、历史委托
+    public static final String GET_ORDERS_PATH = "/v1/order/orders";
+    //搜索最近48小时内历史订单
+    public static final String GET_ORDERS_HISTORY_PATH = "/v1/order/history";
+    //查询订单详情（基于client order ID）
+    public static final String GET_ORDER_BY_CLIENT_ORDER_ID_PATH = "/v1/order/orders/getClientOrder";
+    //查询某个订单的成交明细
+    public static final String GET_SINGLE_ORDER_MATCH_RESULT_PATH = "/v1/order/orders/{order-id}/matchresults";
+    //查询成交
+    public static final String GET_MATCH_RESULT_PATH = "/v1/order/matchresults";
+    //获取用户当前手续费率
+    public static final String GET_FEE_RATE_PATH = "/v2/reference/transact-fee-rate";
+    //订阅订单更新
+    public static final String WEBSOCKET_ORDER_UPDATE_V2_TOPIC = "orders#${symbol}";
+    //订阅清算后成交及撤单更新
+    public static final String WEBSOCKET_TRADE_CLEARING_TOPIC = "trade.clearing#${symbol}";
 
 
   private Options options;

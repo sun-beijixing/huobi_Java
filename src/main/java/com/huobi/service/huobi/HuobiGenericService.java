@@ -20,13 +20,18 @@ import com.huobi.service.huobi.signature.UrlParamsBuilder;
 
 public class HuobiGenericService implements GenericClient {
 
-  public static final String GET_SYSTEM_STATUS_URL = "https://status.huobigroup.com/api/v2/summary.json";
-
-  public static final String GET_MARKET_STATUS_PATH = "/v2/market-status";
-  public static final String GET_SYMBOLS_PATH = "/v1/common/symbols";
-  public static final String GET_CURRENCY_PATH = "/v1/common/currencys";
-  public static final String GET_CURRENCY_CHAINS_PATH = "/v2/reference/currencies";
-  public static final String GET_TIMESTAMP = "/v1/common/timestamp";
+    //获取当前系统状态
+    public static final String GET_SYSTEM_STATUS_URL = "https://status.huobigroup.com/api/v2/summary.json";
+    //获取当前市场状态
+    public static final String GET_MARKET_STATUS_PATH = "/v2/market-status";
+    //获取所有交易对
+    public static final String GET_SYMBOLS_PATH = "/v1/common/symbols";
+    //获取所有币种
+    public static final String GET_CURRENCY_PATH = "/v1/common/currencys";
+    //APIv2 币链参考信息
+    public static final String GET_CURRENCY_CHAINS_PATH = "/v2/reference/currencies";
+    //获取当前系统时间戳
+    public static final String GET_TIMESTAMP = "/v1/common/timestamp";
 
   private Options options;
 

@@ -49,19 +49,26 @@ import com.huobi.utils.ResponseCallback;
 
 public class HuobiAccountService implements AccountClient {
 
-  public static final String GET_ACCOUNTS_PATH = "/v1/account/accounts";
-  public static final String GET_ACCOUNT_BALANCE_PATH = "/v1/account/accounts/{account-id}/balance";
-  public static final String GET_ACCOUNT_HISTORY_PATH = "/v1/account/history";
-  public static final String GET_ACCOUNT_LEDGER_PATH = "/v2/account/ledger";
-  public static final String ACCOUNT_TRANSFER_PATH = "/v1/account/transfer";
-  public static final String ACCOUNT_FUTURES_TRANSFER_PATH = "/v1/futures/transfer";
-  public static final String POINT_ACCOUNT_PATH = "/v2/point/account";
-  public static final String POINT_TRANSFER_PATH = "/v2/point/transfer";
-  public static final String ACCOUNT_ASSET_VALUATION_PATH = "/v2/account/asset-valuation";
-
-
-
-  public static final String SUB_ACCOUNT_UPDATE_TOPIC = "accounts.update#${mode}";
+    //查询当前用户的所有账户
+    public static final String GET_ACCOUNTS_PATH = "/v1/account/accounts";
+    //查询指定账户的余额
+    public static final String GET_ACCOUNT_BALANCE_PATH = "/v1/account/accounts/{account-id}/balance";
+    //查询账户流水
+    public static final String GET_ACCOUNT_HISTORY_PATH = "/v1/account/history";
+    //查询财务流水
+    public static final String GET_ACCOUNT_LEDGER_PATH = "/v2/account/ledger";
+    //资产划转
+    public static final String ACCOUNT_TRANSFER_PATH = "/v1/account/transfer";
+    //币币与合约账户间的资产划转
+    public static final String ACCOUNT_FUTURES_TRANSFER_PATH = "/v1/futures/transfer";
+    //查询点卡余额
+    public static final String POINT_ACCOUNT_PATH = "/v2/point/account";
+    //点卡划转
+    public static final String POINT_TRANSFER_PATH = "/v2/point/transfer";
+    //获取账户资产估值
+    public static final String ACCOUNT_ASSET_VALUATION_PATH = "/v2/account/asset-valuation";
+    //订阅账户变更
+    public static final String SUB_ACCOUNT_UPDATE_TOPIC = "accounts.update#${mode}";
 
 
   private Map<AccountTypeEnum, Account> accountMap = new ConcurrentHashMap<>();

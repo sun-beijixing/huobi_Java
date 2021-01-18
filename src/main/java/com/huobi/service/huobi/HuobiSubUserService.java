@@ -53,24 +53,40 @@ import com.huobi.utils.InputChecker;
 
 public class HuobiSubUserService implements SubUserClient {
 
-  public static final String GET_SUBUSER_ACCOUNT_BALANCE_PATH = "/v1/account/accounts/{sub-uid}";
-  public static final String GET_SUBUSER_AGGREGATE_BALANCE_PATH = "/v1/subuser/aggregate-balance";
-  public static final String TRANSFER_SUBUSER_PATH = "/v1/subuser/transfer";
-
-  public static final String SUBUSER_CREATION_PATH = "/v2/sub-user/creation";
-  public static final String GET_SUBUSER_LIST_PATH = "/v2/sub-user/user-list";
-  public static final String GET_SUBUSER_STATE_PATH = "/v2/sub-user/user-state";
-  public static final String SUBUSER_MANAGEMENT_PATH = "/v2/sub-user/management";
-  public static final String GET_SUBUSER_ACCOUNT_LIST_PATH = "/v2/sub-user/account-list";
-  public static final String SUBUSER_TRANSFERABILITY_PATH = "/v2/sub-user/transferability";
-  public static final String SUBUSER_TRADABLE_MARKET_PATH = "/v2/sub-user/tradable-market";
-  public static final String SUBUSER_APIKEY_GENERATION_PATH = "/v2/sub-user/api-key-generation";
-  public static final String SUBUSER_APIKEY_MODIFICATION_PATH = "/v2/sub-user/api-key-modification";
-  public static final String SUBUSER_APIKEY_DELETION_PATH = "/v2/sub-user/api-key-deletion";
-  public static final String GET_SUBUSER_APIKEY_PATH = "/v2/user/api-key";
-  public static final String GET_SUBUSER_DEPOSIT_ADDRESS_PATH = "/v2/sub-user/deposit-address";
-  public static final String GET_SUBUSER_DEPOSIT_PATH = "/v2/sub-user/query-deposit";
-  public static final String GET_UID_PATH = "/v2/user/uid";
+    //母用户查询子用户各币种账户余额
+    public static final String GET_SUBUSER_ACCOUNT_BALANCE_PATH = "/v1/account/accounts/{sub-uid}";
+    //母用户查询其下所有子用户的各币种汇总余额
+    public static final String GET_SUBUSER_AGGREGATE_BALANCE_PATH = "/v1/subuser/aggregate-balance";
+    //母用户执行母子用户之间的划转
+    public static final String TRANSFER_SUBUSER_PATH = "/v1/subuser/transfer";
+    //此接口用于母用户进行子用户创建，单次最多50个
+    public static final String SUBUSER_CREATION_PATH = "/v2/sub-user/creation";
+    //母用户通过此接口可获取所有子用户的UID列表及各用户状态
+    public static final String GET_SUBUSER_LIST_PATH = "/v2/sub-user/user-list";
+    //母用户通过此接口可获取特定子用户的用户状态
+    public static final String GET_SUBUSER_STATE_PATH = "/v2/sub-user/user-state";
+    //此接口用于母用户对其下一个子用户进行冻结和解冻操作
+    public static final String SUBUSER_MANAGEMENT_PATH = "/v2/sub-user/management";
+    //母用户通过此接口可获取特定子用户的Account ID列表及各账户状态
+    public static final String GET_SUBUSER_ACCOUNT_LIST_PATH = "/v2/sub-user/account-list";
+    //此接口用于母用户批量设置子用户的资产转出权限。 子用户的资金转出权限包括： - 由子用户现货（spot）账户转出至同一母用户下另一子用户的现货（spot）账户； - 由子用户现货（spot）账户转出至母用户现货（spot）账户（无须设置，默认开通）。
+    public static final String SUBUSER_TRANSFERABILITY_PATH = "/v2/sub-user/transferability";
+    //此接口用于母用户批量设置子用户的交易权限。 子用户的现货交易权限默认开通无须设置。
+    public static final String SUBUSER_TRADABLE_MARKET_PATH = "/v2/sub-user/tradable-market";
+    //此接口用于母用户创建子用户的API key
+    public static final String SUBUSER_APIKEY_GENERATION_PATH = "/v2/sub-user/api-key-generation";
+    //此接口用于母用户修改子用户的API key
+    public static final String SUBUSER_APIKEY_MODIFICATION_PATH = "/v2/sub-user/api-key-modification";
+    //此接口用于母用户删除子用户的API key
+    public static final String SUBUSER_APIKEY_DELETION_PATH = "/v2/sub-user/api-key-deletion";
+    //此接口用于母用户查询自身的API key信息，以及母用户查询子用户的API key信息
+    public static final String GET_SUBUSER_APIKEY_PATH = "/v2/user/api-key";
+    //此节点用于母用户查询子用户特定币种（IOTA除外）在其所在区块链中的充币地址，限母用户可用
+    public static final String GET_SUBUSER_DEPOSIT_ADDRESS_PATH = "/v2/sub-user/deposit-address";
+    //此节点用于母用户查询子用户充值记录，限母用户可用
+    public static final String GET_SUBUSER_DEPOSIT_PATH = "/v2/sub-user/query-deposit";
+    //此接口用于母子用户查询本用户UID
+    public static final String GET_UID_PATH = "/v2/user/uid";
 
 
   private Options options;

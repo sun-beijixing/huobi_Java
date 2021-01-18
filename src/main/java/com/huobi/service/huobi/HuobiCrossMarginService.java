@@ -31,15 +31,23 @@ import com.huobi.utils.InputChecker;
 
 public class HuobiCrossMarginService implements CrossMarginClient {
 
+    //资产划转（全仓） 从现货账户划转至全仓杠杆账户
     public static final String TRANSFER_TO_MARGIN_PATH = "/v1/cross-margin/transfer-in";
+    //资产划转（全仓） 从全仓杠杆账户划转至现货账户
     public static final String TRANSFER_TO_SPOT_PATH = "/v1/cross-margin/transfer-out";
+    //申请借币（全仓）
     public static final String APPLY_LOAN_PATH = "/v1/cross-margin/orders";
+    //归还借币（全仓）
     public static final String REPAY_LOAN_PATH = "/v1/cross-margin/orders/{order-id}/repay";
-
+    //借币账户详情（全仓）
     public static final String GET_BALANCE_PATH = "/v1/cross-margin/accounts/balance";
+    //查询借币币息率及额度（全仓）
     public static final String GET_LOAN_INFO_PATH = "/v1/cross-margin/loan-info";
+    //查询借币订单（全仓）
     public static final String GET_LOAN_ORDER_PATH = "/v1/cross-margin/loan-orders";
+    //归还借币（全仓）
     public static final String GENERAL_REPAY_LOAN_PATH = "/v2/account/repayment";
+    //还币交易记录查询（全仓）
     public static final String GENERAL_GET_REPAYMENT_LOAN_RECORDS_PATH = "/v2/account/repayment";
 
 

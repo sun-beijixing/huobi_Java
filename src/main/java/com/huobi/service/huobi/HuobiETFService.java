@@ -24,11 +24,14 @@ import com.huobi.utils.InputChecker;
 
 public class HuobiETFService implements ETFClient {
 
-  public static final String GET_SWAP_CONFIG_PATH = "/etf/swap/config";
-
-  public static final String ETF_SWAP_IN_PATH = "/etf/swap/in";
-  public static final String ETF_SWAP_OUT_PATH = "/etf/swap/out";
-  public static final String GET_SWAP_LIST_PATH = "/etf/swap/list";
+    //基本信息
+    public static final String GET_SWAP_CONFIG_PATH = "/etf/swap/config";
+    //换入
+    public static final String ETF_SWAP_IN_PATH = "/etf/swap/in";
+    //换出
+    public static final String ETF_SWAP_OUT_PATH = "/etf/swap/out";
+    //操作记录
+    public static final String GET_SWAP_LIST_PATH = "/etf/swap/list";
 
 
   private Options options;

@@ -84,22 +84,35 @@ public class HuobiMarketService implements MarketClient {
   }
 
 
-  public static final String REST_CANDLESTICK_PATH = "/market/history/kline";
-  public static final String REST_MARKET_DETAIL_MERGED_PATH = "/market/detail/merged";
-  public static final String REST_MARKET_DETAIL_PATH = "/market/detail";
-  public static final String REST_MARKET_TICKERS_PATH = "/market/tickers";
-  public static final String REST_MARKET_DEPTH_PATH = "/market/depth";
-  public static final String REST_MARKET_TRADE_PATH = "/market/trade";
-  public static final String REST_MARKET_HISTORY_TRADE_PATH = "/market/history/trade";
+    //K 线数据（蜡烛图）
+    public static final String REST_CANDLESTICK_PATH = "/market/history/kline";
+    //聚合行情（Ticker）
+    public static final String REST_MARKET_DETAIL_MERGED_PATH = "/market/detail/merged";
+    //最近24小时行情数据
+    public static final String REST_MARKET_DETAIL_PATH = "/market/detail";
+    //获得所有交易对的 tickers
+    public static final String REST_MARKET_TICKERS_PATH = "/market/tickers";
+    //此接口返回指定交易对的当前市场深度数据
+    public static final String REST_MARKET_DEPTH_PATH = "/market/depth";
+    //此接口返回指定交易对最新的一个交易记录。
+    public static final String REST_MARKET_TRADE_PATH = "/market/trade";
+    //此接口返回指定交易对近期的所有交易记录。
+    public static final String REST_MARKET_HISTORY_TRADE_PATH = "/market/history/trade";
 
-
-  public static final String WEBSOCKET_CANDLESTICK_TOPIC = "market.$symbol$.kline.$period$";
-  public static final String WEBSOCKET_MARKET_DETAIL_TOPIC = "market.$symbol.detail";
-  public static final String WEBSOCKET_MARKET_DEPTH_TOPIC = "market.$symbol.depth.$type";
-  public static final String WEBSOCKET_MARKET_TRADE_TOPIC = "market.$symbol.trade.detail";
-  public static final String WEBSOCKET_MARKET_BBO_TOPIC = "market.$symbol.bbo";
-  public static final String WEBSOCKET_MARKET_MBP_REFRESH_TOPIC = "market.$symbol.mbp.refresh.$levels";
-  public static final String WEBSOCKET_MARKET_MBP_INCREMENT_TOPIC = "market.$symbol.mbp.$levels";
+    //一旦K线数据产生，Websocket服务器将通过此订阅主题接口推送至客户端
+    public static final String WEBSOCKET_CANDLESTICK_TOPIC = "market.$symbol$.kline.$period$";
+    //此主题提供24小时内最新市场概要快照。快照频率不超过每秒10次。
+    public static final String WEBSOCKET_MARKET_DETAIL_TOPIC = "market.$symbol.detail";
+    //此主题发送最新市场深度快照。快照频率为每秒1次。
+    public static final String WEBSOCKET_MARKET_DEPTH_TOPIC = "market.$symbol.depth.$type";
+    //此主题提供市场最新成交逐笔明细。
+    public static final String WEBSOCKET_MARKET_TRADE_TOPIC = "market.$symbol.trade.detail";
+    //主题订阅
+    public static final String WEBSOCKET_MARKET_BBO_TOPIC = "market.$symbol.bbo";
+    //订阅增量推送
+    public static final String WEBSOCKET_MARKET_MBP_REFRESH_TOPIC = "market.$symbol.mbp.refresh.$levels";
+    //请求全量数据
+    public static final String WEBSOCKET_MARKET_MBP_INCREMENT_TOPIC = "market.$symbol.mbp.$levels";
 
   @Override
   public List<Candlestick> getCandlestick(CandlestickRequest request) {
