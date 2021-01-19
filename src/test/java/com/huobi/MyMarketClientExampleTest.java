@@ -17,8 +17,8 @@ public class MyMarketClientExampleTest {
 
     public static void main(String[] args) {
 //        newDatas();
-//        sub();
-        sub3();
+        sub();
+//        sub3();
     }
 
     private static void newDatas() {
@@ -40,7 +40,7 @@ public class MyMarketClientExampleTest {
     }
 
     /**
-     * socket订阅，获取kline数据
+     * socket订阅，获取实时kline数据
      * @Description TODO
      * @Author wangwei.0822@163.com
      * @Date 2020/11/30 19:50
