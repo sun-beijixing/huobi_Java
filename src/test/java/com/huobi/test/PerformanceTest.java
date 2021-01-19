@@ -1,13 +1,10 @@
 package com.huobi.test;
 
-import java.math.BigDecimal;
-
 import com.huobi.Constants;
 import com.huobi.client.AccountClient;
 import com.huobi.client.GenericClient;
 import com.huobi.client.MarketClient;
 import com.huobi.client.TradeClient;
-import com.huobi.client.WalletClient;
 import com.huobi.client.req.account.AccountBalanceRequest;
 import com.huobi.client.req.generic.CurrencyChainsRequest;
 import com.huobi.client.req.market.CandlestickRequest;
@@ -16,14 +13,14 @@ import com.huobi.client.req.market.MarketDetailRequest;
 import com.huobi.client.req.market.MarketTradeRequest;
 import com.huobi.client.req.trade.CreateOrderRequest;
 import com.huobi.client.req.trade.FeeRateRequest;
-import com.huobi.client.req.wallet.DepositAddressRequest;
-import com.huobi.client.req.wallet.WithdrawAddressRequest;
 import com.huobi.constant.HuobiOptions;
 import com.huobi.constant.enums.CandlestickIntervalEnum;
 import com.huobi.constant.enums.DepthSizeEnum;
 import com.huobi.constant.enums.DepthStepEnum;
 import com.huobi.utils.ConnectionFactory;
 import com.huobi.utils.ConnectionFactory.NetworkLatency;
+
+import java.math.BigDecimal;
 
 public class PerformanceTest {
 
@@ -48,7 +45,6 @@ public class PerformanceTest {
     GenericClient genericClient = GenericClient.create(new HuobiOptions());
     MarketClient marketClient = MarketClient.create(new HuobiOptions());
     AccountClient accountClient = AccountClient.create(HuobiOptions.builder().apiKey(Constants.API_KEY).secretKey(Constants.SECRET_KEY).build());
-    WalletClient walletClient = WalletClient.create(HuobiOptions.builder().apiKey(Constants.API_KEY).secretKey(Constants.SECRET_KEY).build());
     TradeClient tradeClient = TradeClient.create(HuobiOptions.builder().apiKey(Constants.API_KEY).secretKey(Constants.SECRET_KEY).build());
     Long startNano = null;
     Long endNano = null;
@@ -111,19 +107,6 @@ public class PerformanceTest {
     networkLatency = ConnectionFactory.getLatencyDebugQueue().poll();
     print(networkLatency, startNano, endNano);
 
-    // /v2/account/deposit/address
-    startNano = System.nanoTime();
-    walletClient.getDepositAddress(DepositAddressRequest.builder().currency(currency).build());
-    endNano = System.nanoTime();
-    networkLatency = ConnectionFactory.getLatencyDebugQueue().poll();
-    print(networkLatency, startNano, endNano);
-
-    // /v2/account/withdraw/address
-    startNano = System.nanoTime();
-    walletClient.getWithdrawAddress(WithdrawAddressRequest.builder().currency(currency).build());
-    endNano = System.nanoTime();
-    networkLatency = ConnectionFactory.getLatencyDebugQueue().poll();
-    print(networkLatency, startNano, endNano);
 
     // 下单
     startNano = System.nanoTime();
