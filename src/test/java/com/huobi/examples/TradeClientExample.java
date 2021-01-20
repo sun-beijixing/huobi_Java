@@ -60,6 +60,7 @@ public class TradeClientExample {
     BigDecimal bidPrice = marketDetailMerged.getBid().getPrice().multiply(new BigDecimal("0.95")).setScale(4, RoundingMode.DOWN);
     BigDecimal askPrice = marketDetailMerged.getAsk().getPrice().multiply(new BigDecimal("1.05")).setScale(4, RoundingMode.DOWN);
 
+    //创建订单
     CreateOrderRequest buyLimitRequest = CreateOrderRequest.spotBuyLimit(spotAccountId, clientOrderId, symbol, bidPrice, new BigDecimal("2"));
     Long buyLimitId = tradeService.createOrder(buyLimitRequest);
     System.out.println("create buy-limit order:" + buyLimitId);
