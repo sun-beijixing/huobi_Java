@@ -5,6 +5,12 @@ import lombok.Getter;
 
 /**
  * sys, web, api, app.
+ *
+ * spot-api：现货API交易
+ * margin-api：逐仓杠杆API交易
+ * super-margin-api：全仓杠杆API交易
+ * c2c-margin-api：C2C杠杆API交易
+ * grid-trading-sys：网格交易（暂不支持API下单）
  */
 @Getter
 @AllArgsConstructor
