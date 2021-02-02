@@ -38,9 +38,9 @@ public class ConnectionFactory {
           .proxy(proxy)
       .followSslRedirects(false)
       .followRedirects(false)
-      .connectTimeout(5000, TimeUnit.MILLISECONDS)
-      .readTimeout(5000, TimeUnit.MILLISECONDS)
-      .writeTimeout(5000, TimeUnit.MILLISECONDS)
+      .connectTimeout(15000, TimeUnit.MILLISECONDS)
+      .readTimeout(15000, TimeUnit.MILLISECONDS)
+      .writeTimeout(15000, TimeUnit.MILLISECONDS)
       .connectionPool(connectionPool)
       .addNetworkInterceptor(new Interceptor() {
         @NotNull
