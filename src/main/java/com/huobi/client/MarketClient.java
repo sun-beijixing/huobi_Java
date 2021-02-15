@@ -48,33 +48,8 @@ public interface MarketClient {
 
   List<Candlestick> getCandlestick(CandlestickRequest request);
 
-  MarketDetailMerged getMarketDetailMerged(MarketDetailMergedRequest request);
-
-  MarketDetail getMarketDetail(MarketDetailRequest request);
-
-  List<MarketTicker> getTickers();
-
-  MarketDepth getMarketDepth(MarketDepthRequest request);
-
-  List<MarketTrade> getMarketTrade(MarketTradeRequest request);
-
-  List<MarketTrade> getMarketHistoryTrade(MarketHistoryTradeRequest request);
 
   void subCandlestick(SubCandlestickRequest request, ResponseCallback<CandlestickEvent> callback);
-
-  void subMarketDetail(SubMarketDetailRequest request, ResponseCallback<MarketDetailEvent> callback);
-
-  void subMarketDepth(SubMarketDepthRequest request, ResponseCallback<MarketDepthEvent> callback);
-
-  void subMarketTrade(SubMarketTradeRequest request, ResponseCallback<MarketTradeEvent> callback);
-
-  void subMarketBBO(SubMarketBBORequest request, ResponseCallback<MarketBBOEvent> callback);
-
-  void subMbpRefreshUpdate(SubMbpRefreshUpdateRequest request, ResponseCallback<MbpRefreshUpdateEvent> callback);
-
-  WebSocketConnection subMbpIncrementalUpdate(SubMbpIncrementalUpdateRequest request, ResponseCallback<MbpIncrementalUpdateEvent> callback);
-
-  WebSocketConnection reqMbpIncrementalUpdate(SubMbpIncrementalUpdateRequest request, WebSocketConnection connection);
 
     /**
      * 历史数据订阅，含有时间段
@@ -86,11 +61,6 @@ public interface MarketClient {
      **/
     void reqCandlestick(ReqCandlestickRequest request, ResponseCallback<CandlestickReq> callback);
 
-  void reqMarketDepth(ReqMarketDepthRequest request, ResponseCallback<MarketDepthReq> callback);
-
-  void reqMarketTrade(ReqMarketTradeRequest request, ResponseCallback<MarketTradeReq> callback);
-
-  void reqMarketDetail(ReqMarketDetailRequest request, ResponseCallback<MarketDetailReq> callback);
 
   static MarketClient create(Options options) {
 

@@ -1,13 +1,12 @@
 package com.huobi;
 
 import com.huobi.client.MarketClient;
-import com.huobi.client.req.market.*;
+import com.huobi.client.req.market.CandlestickRequest;
+import com.huobi.client.req.market.ReqCandlestickRequest;
+import com.huobi.client.req.market.SubCandlestickRequest;
 import com.huobi.constant.HuobiOptions;
 import com.huobi.constant.enums.CandlestickIntervalEnum;
-import com.huobi.constant.enums.DepthLevels;
-import com.huobi.constant.enums.DepthSizeEnum;
-import com.huobi.constant.enums.DepthStepEnum;
-import com.huobi.model.market.*;
+import com.huobi.model.market.Candlestick;
 
 import java.util.List;
 
@@ -17,8 +16,8 @@ public class MyMarketClientExampleTest {
 
     public static void main(String[] args) {
 //        newDatas();
-        sub();
-//        sub3();
+//        sub();
+        sub3();
     }
 
     private static void newDatas() {
