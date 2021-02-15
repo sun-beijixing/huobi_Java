@@ -1,11 +1,10 @@
 package com.huobi.constant;
 
+import com.huobi.constant.enums.ExchangeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
-import com.huobi.constant.enums.ExchangeEnum;
 
 @Builder
 @AllArgsConstructor

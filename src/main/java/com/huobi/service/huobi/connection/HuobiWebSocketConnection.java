@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.huobi.constant.enums.ConnectionStateEnum;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.Request;
@@ -17,7 +17,6 @@ import okhttp3.WebSocketListener;
 import okio.ByteString;
 
 import com.huobi.constant.Options;
-import com.huobi.constant.enums.ConnectionStateEnum;
 import com.huobi.service.huobi.parser.HuobiModelParser;
 import com.huobi.service.huobi.signature.ApiSignature;
 import com.huobi.service.huobi.signature.ApiSignatureV2;
